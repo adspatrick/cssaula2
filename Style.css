@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;900&display=swap');
+
+:root {
+    /* Paleta Atômica e Super Colorida */
+    --primary: #ff00ff;   /* Magenta */
+    --secondary: #00ff00; /* Verde Neon */
+    --accent: #ffff00;    /* Amarelo */
+    --bg-dark: #000000;
+    --spacing: 2rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 0; /* Espaço de segurança para telas menores */
+    
+    /* Fundo Colorido (Mesh Gradient) */
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* --- TÍTULO --- */
+.titulo-profissional {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 var(--spacing) 0;
+    
+    /* Sem Webkit: Sombras múltiplas para criar contorno e profundidade */
+    color: var(--accent);
+    text-shadow: 
+        3px 3px 0px var(--primary), 
+        6px 6px 0px #000,
+        -1px -1px 0px #000;
+}
+
+/* --- CONTAINER DA IMAGEM --- */
+.imagem-container {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 600px;
+    height: 250px; /* Altura da imagem */
+    margin-bottom: var(--spacing);
+    
+    border: 4px solid #000;
+    background-color: var(--accent); 
+    
+    /* Sombra sólida Verde Neon */
+    box-shadow: 15px 15px 0px var(--secondary);
+    
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.imagem-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Não deixa a imagem distorcer */
+    
+    /* Filtro para deixar qualquer foto super saturada e psicodélica */
+    filter: saturate(1.8) contrast(1.2); 
+}
+
+/* Efeito Hover na Imagem (Simula clique) */
+.imagem-container:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 5px 5px 0px var(--secondary);
+}
+
+/* --- CONTAINER DO TEXTO --- */
+.texto-container {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 600px;
+    
+    background: var(--bg-dark);
+    border: 4px solid var(--secondary);
+    padding: var(--spacing);
+    
+    /* Sombra sólida Magenta */
+    box-shadow: 15px 15px 0px var(--primary);
+    
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+/* Efeito Hover no Texto (Simula clique) */
+.texto-container:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 5px 5px 0px var(--primary);
+}
+
+.texto-premium {
+    line-height: 1.5;
+    color: var(--secondary);
+    text-align: left;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin: 0;
+    
+    /* Limite rigoroso de 5 linhas sem usar webkit-box */
+    height: 9rem; /* (1.2rem de fonte * 1.5 de line-height) * 5 linhas */
+    overflow: hidden;
+}
+
+/* Detalhe Listrado no Topo do Bloco de Texto */
+.texto-container::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--primary),
+        var(--primary) 20px,
+        var(--accent) 20px,
+        var(--accent) 40px
+    );
+}
+
+/* --- ESTILO DO BOTÃO POP ART --- */
+.botao-pop {
+    display: inline-block;
+    margin-top: 1.5rem; /* Garante o espaçamento abaixo do texto */
+    padding: 0.8rem 1.5rem;
+    
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    /* Cores e Bordas Brutalistas */
+    color: #000;
+    background-color: var(--accent); /* Amarelo */
+    border: 3px solid #000;
+    
+    /* Sombra sólida Magenta */
+    box-shadow: 6px 6px 0px var(--primary);
+    
+    /* Transição suave para o efeito de clique */
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Efeito Hover / Clique no Botão */
+.botao-pop:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0px var(--primary);
+}
+
+.botao-pop:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--primary);
+}
